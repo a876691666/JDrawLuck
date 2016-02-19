@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		开心刮刮卡
+	</title>
+	<link rel="stylesheet" href="">
+	<script src="js/Mtools.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/JDrawLuck.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<style>
+body,html{margin:0;padding:0;}
+*{box-sizing: border-box}
+	.GGK_header{
+		width:100%;
+		height:300px;
+		background-image:url(images/黄.gif);
+		background-size:100% 100%;
+		background-repeat:no-repeat;
+		padding-top:1px;
+	}
+	.GGK_title{
+		background-image:url(images/开心刮刮卡.gif);
+		background-size:100% 100%;
+		background-repeat:no-repeat;
+		height:60px;
+		margin:30px 75px 0;
+	}
+	.GGK_body{
+		height:180px;
+		position:absolute;
+		top:120px;
+		width:100%;
+		padding:0 40px;
+	}
+	.GGK_box{
+		overflow:hidden;
+		width:100%;
+		height:100%;
+		border-radius:12px;
+		position:relative;
+		background-image:url(images/bj2.jpg);
+	}
+	.GGK_sub1{
+		position:absolute;
+		bottom:10px;
+		height:40px;
+		width:100%;
+		background-image:url(images/bj3.png);
+	}
+	.GGK_position{
+		width:100%;
+		height:50px;
+		position:absolute;
+		top:0;
+		bottom:0;
+    	margin: auto;
+    	padding:0 30px;
+	}
+	.GGK{
+		background:#fff;
+		width:100%;
+		height:100%;
+		border-radius:6px;
+		position:relative;
+		padding:5px;
+	}
+	.GGK h1{
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    text-align: center;
+	    font-size: 20px;
+	    line-height: 20px;
+	    height: 20px;
+	    margin: auto;
+	    z-index:1;
+	}
+	.GGK h1 span{
+		color:#f00;
+	}
+	.GGK canvas{
+		position:relative;
+		z-index:2;
+	}
+	.GGK_text{
+		margin-top:40px;
+	}
+	.GGK_tTitle{
+	    font-size: 16px;
+	    line-height: 16px;
+	    height: 36px;
+	    font-weight:600;
+	    padding:10px 0 10px 30px;
+	    color:#fff;
+	    background:url(images/hdgz.gif)no-repeat;
+	}
+	.GGK_content{
+		width:100%;
+		padding:12px 30px 0;
+	}
+	.GGK_content p{
+		margin:0;padding:0 0 5px 0;
+		font-size:13px;
+		color:#fff;
+
+	}
+	body{
+		background-image:url(images/bj.jpg);
+	}
+</style>
+<body>
+	<div class="GGK_header">
+		<div class="GGK_title">
+			
+		</div>
+	</div>
+	<!-- 刮刮卡 定位用图层 -->
+	<div class="GGK_body">
+		<!-- 刮刮卡 卡片盒子 -->
+		<div class="GGK_box">
+			
+			<div class="GGK_position">
+				<!-- 刮刮卡canvas box -->
+				<div class="GGK" id="GGK_Box">
+					<canvas>
+						
+					</canvas>
+					<h1>
+						<span>500,000,000</span> $
+					</h1>
+				</div>
+			</div>
+			<div class="GGK_sub1">
+				<!-- 卡片装饰1 -->
+			</div>
+		</div>
+		<!-- 刮刮卡 卡片盒子 end-->
+		<!-- 刮刮卡 说明 -->
+		<div class="GGK_text">
+			<div class="GGK_tTitle">
+				活动规则
+			</div>
+			<div class="GGK_content">
+				<p>1.每个用户只能参加一次</p>
+				<p>1.每个用户只能参加一次</p>
+				<p>1.每个用户只能参加一次</p>
+			</div>
+		</div>
+		<!-- 刮刮卡 说明 end-->
+	</div>
+	<!-- 刮刮卡 定位用图层 end-->
+</body>
+<script>
+	var boxWidth = GGK_Box.clientWidth - (
+					parseFloat($("GGK_Box").getStyle("paddingLeft")) + 
+					parseFloat($("GGK_Box").getStyle("paddingRight"))
+					);
+	var boxHeight = GGK_Box.clientHeight - (
+					parseFloat($("GGK_Box").getStyle("paddingTop")) + 
+					parseFloat($("GGK_Box").getStyle("paddingBottom"))
+					);
+	var canvasDom = GGK_Box.getElementsByTagName("canvas")[0]
+	canvasDom.setAttribute("width",boxWidth);
+	canvasDom.setAttribute("height",boxHeight);
+	var data = {
+		canvasDOM:canvasDom,
+		canvasWidth:boxWidth,
+		canvasHeight:boxHeight,
+		borderWidth:14,
+		Bf:0.65,
+		Bfcallback : function(){
+			alert("恭喜您获得：500,000,000 $");
+		}
+	}
+	JLD.Scratch(data);
+</script>
+</html>

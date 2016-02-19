@@ -53,32 +53,6 @@
 
 			gray.closePath();
 			gray.globalCompositeOperation="destination-out";
-
-			// myCanvas.ontouchstart=function (e) {
-			// 	myCanvas.ontouchmove=function(e){
-			// 		gray.beginPath();
-			// 		gray.fillStyle = "#f00";
-			// 		gray.arc(e.targetTouches[0].offsetX, e.targetTouches[0].offsetY, 20, 0, Math.PI*2);
-			// 		gray.fill();
-			// 		gray.closePath();
-			// 	}
-			// 	window.ontouchend=function(e){
-			// 		myCanvas.ontouchmove=function(e){}
-			// 	}
-			// }
-			// 
-			// myCanvas.onmousedown=function (e) {
-			// 	myCanvas.onmousemove=function(e){
-			// 		gray.beginPath();
-			// 		gray.fillStyle = "#f00";
-			// 		gray.arc(e.offsetX, e.offsetY, 20, 0, Math.PI*2);
-			// 		gray.fill();
-			// 		gray.closePath();
-			// 	}
-			// 	window.onmouseup=function(e){
-			// 		myCanvas.onmousemove=function(e){}
-			// 	}
-			// }
 			function move(e){
 				gray.beginPath();
 				gray.fillStyle = "#f00";
@@ -86,8 +60,8 @@
 					gray.arc(e.offsetX, e.offsetY, O.borderWidth, 0, Math.PI*2);
 				}else if(e.type == "touchmove"){
 					gray.arc(
-						e.targetTouches[0].clientX-MTools.getOffset(O.canvasDOM).left,
-						e.targetTouches[0].clientY-MTools.getOffset(O.canvasDOM).top, 
+						e.targetTouches[0].clientX-$(O.canvasDOM).getOffset().left,
+						e.targetTouches[0].clientY-$(O.canvasDOM).getOffset().top, 
 						O.borderWidth, 
 						0, 
 						Math.PI*2);
